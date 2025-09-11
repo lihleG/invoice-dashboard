@@ -3,6 +3,7 @@ import React from "react";
 import StatsCard from "./StatsCard";
 import InvoiceTable from "./InvoiceTable";
 import RecentTransactions from "./RecentTransactions";
+import RevenueChart fro "./RevenueChart";
 
 
 export default function DashboardCard({ title, value }) {
@@ -20,6 +21,9 @@ return (
 
       {/* Recent Transactions */}
       <RecentTransactions />
+
+      {/*RevenueChart */}
+      <RevenueChart/>
     </div>
   );
 }
