@@ -1,55 +1,27 @@
 import React from "react";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, } from "recharts";
 
 const data = [
-  { name: "Marketing", value: 400 },
-  { name: "CRM", value: 300 },
-  { name: "Taxes", value: 200 },
-  { name: "Debt", value: 278 },
-  { name: "Insurance", value: 189 },
-  { name: "Others", value: 239 },
+  { name: "Jan", revenue: 20000 },
+  { name: "Feb", revenue: 25000 },
+  { name: "Mar", revenue: 28000 },
+  { name: "Apr", revenue: 30000 },
+  { name: "May", revenue: 35000 },
+  { name: "Jun", revenue: 40000 },
 ];
-
-const COLORS = ["#4CAF50", "#FF9800", "#FFC107", "#F44336", "#2196F3", "#9C27B0"];
 
 export default function RevenueChart() {
   return (
-    <div className="bg-white rounded-lg p-6 shadow-md">
-      <h2 className="text-xl font-bold mb-6 text-gray-700 text-center">Budget Breakdown</h2>
-
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-        {/* Chart */}
-        <ResponsiveContainer width={300} height={300}>
-          <PieChart>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              outerRadius={100}
-              dataKey="value"
-              label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-            >
-              {data.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
-
-        {/* Custom Legend */}
-        <div className="flex flex-col gap-3">
-          {data.map((entry, index) => (
-            <div key={index} className="flex items-center gap-2">
-              <div
-                className="w-4 h-4 rounded-full"
-                style={{ backgroundColor: COLORS[index % COLORS.length] }}
-              ></div>
-              <span className="text-gray-600 text-sm">{entry.name}</span>
-            </div>
-          ))}
-        </div>
+    <div className="bg-white rounded-xl shadow p-4">
+      <h3 className="font-semibold mb-3">Revenue Statements</h3>
+      <ResponsiveContainer width="100%" height={250}>
+        <BarChart data={data}>
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Bar dataKey="revenue" fill="#6b46c1" />
+          </BarChart>
+      </ResponsiveContainer>
       </div>
-    </div>
   );
 }

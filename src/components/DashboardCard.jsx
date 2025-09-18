@@ -1,7 +1,7 @@
 // src/components/DashboardCard.jsx
 import React, {useState} from "react";
 import StatsCard from "./StatsCard";
-import InvoiceTable from "./InvoiceTable";
+import InvoiceTable from "./invoices/InvoiceTable";
 import RecentTransactions from "./RecentTransactions";
 import RevenueChart from "./RevenueChart";
 import InvoiceForm from "./invoices/InvoiceForm";
